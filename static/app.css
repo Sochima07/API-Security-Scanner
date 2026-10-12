@@ -1,0 +1,88 @@
+/* =========================================================
+   API Wire - CYBERSECURITY UI STYLES
+   ========================================================= */
+
+:root {
+    --bg-dark: #080c14;
+    --card-bg: rgba(15, 23, 42, 0.75);
+    --border-color: rgba(51, 65, 85, 0.5);
+    --cyan-glow: rgba(6, 182, 212, 0.4);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Subtle Cyber Grid Background */
+.bg-cyber-grid {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+    border: 2px solid #090d16;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9;
+}
+
+/* Card Glow Effect on Hover */
+.glass-card {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.15);
+}
+
+/* Scan Animation Radar / Progress */
+@keyframes radar-pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+.radar-spin {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Smooth Transitions */
+.transition-smooth {
+    transition: all 0.25s ease-in-out;
+}

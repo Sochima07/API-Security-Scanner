@@ -1,0 +1,272 @@
+[
+    {
+        "timestamp": "2025-04-18 22:23:23",
+        "url": "https://www.youtube.com/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-18 22:28:45",
+        "url": "https://www.stageaudioworks.com/",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected!",
+            "Command Injection": "Possible Command Injection detected!"
+        }
+    },
+    {
+        "timestamp": "2025-04-18 22:31:07",
+        "url": "https://www.stageaudioworks.com/",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected!",
+            "Command Injection": "Possible Command Injection detected!"
+        }
+    },
+    {
+        "timestamp": "2025-04-18 22:32:56",
+        "url": "https://www.stageaudioworks.com/",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected!",
+            "Command Injection": "Possible Command Injection detected!"
+        }
+    },
+    {
+        "timestamp": "2025-04-18 22:45:26",
+        "url": "https://www.stageaudioworks.com/",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected!",
+            "Command Injection": "Possible Command Injection detected!"
+        }
+    },
+    {
+        "timestamp": "2025-04-18 22:52:15",
+        "url": "https://www.youtube.com/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 13:33:45",
+        "url": "https://www.stageaudioworks.com/",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected!",
+            "Command Injection": "Possible Command Injection detected!"
+        }
+    },
+    {
+        "timestamp": "2025-04-19 13:56:36",
+        "url": "https://www.youtube.com/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 14:35:20",
+        "url": "https://www.youtube.com/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 15:45:38",
+        "url": "https://www.youtube.com/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 16:02:30",
+        "url": "https://www.stageaudioworks.com/",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected!",
+            "Command Injection": "Possible Command Injection detected!"
+        }
+    },
+    {
+        "timestamp": "2025-04-19 16:16:43",
+        "url": "https://myeduvos.com/jobs",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 16:25:48",
+        "url": "https://myeduvos.com/jobs",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 16:28:26",
+        "url": "https://myeduvos.com/jobs",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 16:29:46",
+        "url": "https://myeduvos.com/jobs",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 16:36:20",
+        "url": "https://myeduvos.com/jobs",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 21:01:21",
+        "url": "https://myeduvos.com/jobs",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 21:01:33",
+        "url": "https://www.youtube.com/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 21:01:46",
+        "url": "https://www.zabursaries.co.za/",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 22:09:19",
+        "url": "https://myeduvos.com/jobs",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2025-04-19 22:09:41",
+        "url": "https://www.zabursaries.co.za/",
+        "results": {
+            "SQL Injection": "Possible SQL Injection detected!",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2026-10-06 13:22:20",
+        "url": "https://httpbin.org/post",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "Possible XSS vulnerability detected! (payload reflected in response)",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "Possible Command Injection detected! (payload: test && cat /etc/passwd)"
+        }
+    },
+    {
+        "timestamp": "2026-10-06 13:24:51",
+        "url": "https://nevralis.com",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected! (no CSRF token found in response, headers, or cookies)",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2026-10-06 13:33:25",
+        "url": "https://www.youtube.com/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "No CSRF vulnerability detected.",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2026-10-06 13:34:18",
+        "url": "https://www.nevralis.com/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected! (no CSRF token found in response, headers, or cookies)",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2026-10-06 13:34:54",
+        "url": "https://www.nevralis.com/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected! (no CSRF token found in response, headers, or cookies)",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    },
+    {
+        "timestamp": "2026-10-06 13:36:20",
+        "url": "https://www.gouni.edu.ng/",
+        "results": {
+            "SQL Injection": "No SQL Injection vulnerability detected.",
+            "XSS": "No XSS vulnerability detected.",
+            "CSRF": "Possible CSRF vulnerability detected! (no CSRF token found in response, headers, or cookies)",
+            "Command Injection": "No Command Injection vulnerability detected."
+        }
+    }
+]

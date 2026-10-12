@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Wire | Modern API Security Scanner</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                        },
+                        darkbg: '#090d16',
+                        cardbg: 'rgba(15, 23, 42, 0.75)',
+                        borderbg: 'rgba(51, 65, 85, 0.4)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'scan-beam': 'scanBeam 2.5s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        scanBeam: {
+                            '0%, 100%': { transform: 'translateY(-100%)', opacity: '0.1' },
+                            '50%': { transform: 'translateY(100%)', opacity: '0.8' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 15px rgba(6, 182, 212, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(6, 182, 212, 0.7)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body class="bg-[#080c14] text-slate-200 font-sans min-h-screen relative overflow-x-hidden selection:bg-cyan-500 selection:text-white">
+
+    <!-- Background Ambient Glow & Cyber Grid -->
+    <div class="fixed inset-0 bg-cyber-grid pointer-events-none z-0"></div>
+    <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-gradient-to-tr from-cyan-600/20 via-indigo-600/20 to-purple-600/10 blur-[130px] rounded-full pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-5%] w-[500px] h-[400px] bg-cyan-900/15 blur-[120px] rounded-full pointer-events-none z-0"></div>
+
+    <!-- Main Wrapper -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- Top Navigation -->
+        <header class="border-b border-slate-800/80 backdrop-blur-xl bg-slate-950/60 sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 ring-1 ring-white/20">
+                        <i class="fa-solid fa-shield-halved text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-lg tracking-tight text-white flex items-center gap-2">
+                            API <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">SENTINEL</span>
+                        </span>
+                        <span class="text-[10px] uppercase font-mono tracking-widest text-slate-400 block -mt-1">Security Audit Engine</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="hidden sm:flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>CORE ENGINE ONLINE</span>
+                    </div>
+                    <span class="px-2.5 py-1 text-xs font-mono font-semibold rounded-md bg-slate-800 text-cyan-400 border border-slate-700/60">v2.4 LTS</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+            
+            <!-- Hero Header -->
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-medium mb-4 shadow-inner">
+                    <i class="fa-solid fa-bolt-lightning text-cyan-400"></i>
+                    <span>Automated REST & GraphQL Vulnerability Scanner</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
+                    Audit API Endpoints for <br class="hidden sm:block">
+                    <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">Security Vulnerabilities</span>
+                </h1>
+                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                    Test your API against real-world attack vectors: SQL Injection, Reflected XSS, CSRF tokens, and Command Execution. Get immediate diagnostic metrics and exportable PDF audit reports.
+                </p>
+            </div>
+
+            <!-- Scanner Console Card -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="relative group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+                    <div class="relative bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 rounded-2xl p-6 sm:p-8 shadow-2xl">
+                        
+                        <!-- Input Form -->
+                        <form id="scanForm" class="space-y-4">
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <div class="relative flex-grow">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
+                                        <i class="fa-solid fa-link text-slate-400"></i>
+                                    </div>
+                                    <input 
+                                        type="url" 
+                                        id="urlInput" 
+                                        name="url" 
+                                        placeholder="https://api.example.com/v1/auth" 
+                                        required
+                                        class="w-full pl-11 pr-24 py-3.5 bg-slate-950/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 transition-all shadow-inner"
+                                    >
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center gap-1.5">
+                                        <button 
+                                            type="button" 
+                                            id="clearBtn" 
+                                            class="text-xs text-slate-400 hover:text-slate-200 px-2 py-1 rounded hover:bg-slate-800 transition"
+                                            title="Clear URL"
+                                        >
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">POST</span>
+                                    </div>
+                                </div>
+                                <button 
+                                    type="submit" 
+                                    id="submitBtn" 
+                                    class="sm:w-auto w-full px-7 py-3.5 bg-gradient-to-r from-cyan-500 hover:from-cyan-400 to-blue-600 hover:to-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2.5 transition-all transform active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                                >
+                                    <i class="fa-solid fa-radar text-base" id="btnIcon"></i>
+                                    <span id="btnText">Launch Scan</span>
+                                </button>
+                            </div>
+
+                            <!-- Sample Quick Endpoints -->
+                            <div class="flex flex-wrap items-center gap-2 pt-2 text-xs text-slate-400">
+                                <span class="font-medium text-slate-500 flex items-center gap-1">
+                                    <i class="fa-solid fa-lightbulb text-amber-400"></i> Quick Test:
+                                </span>
+                                <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-800 hover:text-cyan-400 border border-slate-700/60 transition font-mono text-[11px]" data-url="https://httpbin.org/post">
+                                    httpbin.org/post
+                                </button>
+                                <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-800 hover:text-cyan-400 border border-slate-700/60 transition font-mono text-[11px]" data-url="https://jsonplaceholder.typicode.com/posts">
+                                    jsonplaceholder.typicode.com/posts
+                                </button>
+                                <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-800 hover:text-cyan-400 border border-slate-700/60 transition font-mono text-[11px]" data-url="https://reqres.in/api/users">
+                                    reqres.in/api/users
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Live Scanning Indicator (Hidden by default) -->
+                        <div id="scanLoader" class="hidden mt-8 pt-6 border-t border-slate-800">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center space-x-3">
+                                    <div class="relative w-4 h-4">
+                                        <span class="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75 animate-ping"></span>
+                                        <span class="relative inline-flex rounded-full h-4 w-4 bg-cyan-500"></span>
+                                    </div>
+                                    <span id="loaderStatusText" class="text-sm font-mono text-cyan-300 font-medium">Injecting SQL vulnerability probes...</span>
+                                </div>
+                                <span id="loaderPercent" class="text-xs font-mono text-slate-400">Auditing Target</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden relative">
+                                <div id="progressBar" class="h-full bg-gradient-to-r from-cyan-500 via-teal-400 to-blue-500 rounded-full w-0 transition-all duration-300"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Banner (Hidden by default) -->
+            <div id="errorBanner" class="hidden max-w-4xl mx-auto mb-8 p-4 rounded-xl bg-red-950/60 border border-red-500/40 text-red-200 flex items-start gap-3 backdrop-blur-md">
+                <i class="fa-solid fa-triangle-exclamation text-red-400 text-lg mt-0.5"></i>
+                <div class="flex-grow">
+                    <h4 class="font-semibold text-sm text-red-300">Scan Execution Failed</h4>
+                    <p id="errorMessage" class="text-xs text-red-300/80 mt-0.5"></p>
+                </div>
+                <button type="button" id="closeErrorBtn" class="text-red-400 hover:text-red-200">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Results Section (Hidden by default) -->
+            <div id="results" class="hidden max-w-4xl mx-auto space-y-6">
+                
+                <!-- Results Header & Summary Stats -->
+                <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-700/60 rounded-2xl p-6 shadow-xl">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">AUDIT COMPLETED</span>
+                                <span id="scannedTimestamp" class="text-xs text-slate-400 font-mono"></span>
+                            </div>
+                            <h2 class="text-xl font-bold text-white mt-1.5 flex items-center gap-2">
+                                Security Assessment Summary
+                            </h2>
+                            <p id="scannedUrlDisplay" class="text-xs font-mono text-slate-400 mt-1 truncate max-w-lg"></p>
+                        </div>
+                        
+                        <!-- PDF Download Action -->
+                        <a 
+                            id="downloadLink" 
+                            href="#" 
+                            class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-lg shadow-emerald-600/20 border border-emerald-400/30 transition transform hover:-translate-y-0.5"
+                            download
+                        >
+                            <i class="fa-solid fa-file-pdf text-base"></i>
+                            <span>Download PDF Report</span>
+                        </a>
+                    </div>
+
+                    <!-- Statistics Metric Cards -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
+                        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                            <span class="text-xs text-slate-400 font-medium block">Total Tests</span>
+                            <span id="statTotal" class="text-xl font-bold font-mono text-white mt-1 block">4</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                            <span class="text-xs text-slate-400 font-medium block">Vulnerabilities</span>
+                            <span id="statThreats" class="text-xl font-bold font-mono text-red-400 mt-1 block">0</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                            <span class="text-xs text-slate-400 font-medium block">Clean Checks</span>
+                            <span id="statPassed" class="text-xl font-bold font-mono text-emerald-400 mt-1 block">0</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                            <span class="text-xs text-slate-400 font-medium block">Warnings / Errors</span>
+                            <span id="statWarnings" class="text-xl font-bold font-mono text-amber-400 mt-1 block">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Module Cards Grid -->
+                <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Dynamic Test Cards injected by JavaScript -->
+                </div>
+
+            </div>
+
+            <!-- Threat Intel / Scanner Capabilities Section -->
+            <div class="max-w-4xl mx-auto mt-16 pt-12 border-t border-slate-800/80">
+                <div class="text-center mb-8">
+                    <h3 class="text-xl font-bold text-white tracking-tight">Vulnerability Vector Coverage</h3>
+                    <p class="text-slate-400 text-xs mt-1">Multi-stage payload analysis executed against endpoint input surfaces</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- SQLi Info -->
+                    <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center border border-red-500/20">
+                                <i class="fa-solid fa-database text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-slate-100">SQL Injection (SQLi)</h4>
+                                <span class="text-[10px] font-mono text-red-400 uppercase tracking-wider">High / Critical Risk</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Evaluates backend query construction using tautologies, union operators, and error-based heuristic pattern matching across 13 major database engines.
+                        </p>
+                    </div>
+
+                    <!-- XSS Info -->
+                    <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+                                <i class="fa-solid fa-code text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-slate-100">Cross-Site Scripting (XSS)</h4>
+                                <span class="text-[10px] font-mono text-amber-400 uppercase tracking-wider">Medium / High Risk</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Probes input reflection, script execution context, unescaped HTML tag attributes, and client-side sanitization bypass mechanisms.
+                        </p>
+                    </div>
+
+                    <!-- CSRF Info -->
+                    <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
+                                <i class="fa-solid fa-fingerprint text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-slate-100">CSRF & Token Validation</h4>
+                                <span class="text-[10px] font-mono text-blue-400 uppercase tracking-wider">Medium Risk</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Audits state-changing requests for mandatory anti-forgery headers (<code class="font-mono text-[11px] text-slate-300">X-CSRF-Token</code>), SameSite cookie flags, and token rotation.
+                        </p>
+                    </div>
+
+                    <!-- Command Injection Info -->
+                    <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center border border-purple-500/20">
+                                <i class="fa-solid fa-terminal text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-slate-100">OS Command Injection</h4>
+                                <span class="text-[10px] font-mono text-purple-400 uppercase tracking-wider">Critical Risk</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Checks if user inputs are piped directly into OS shells using delimiter chaining (<code class="font-mono text-[11px] text-slate-300">; &amp;&amp; |</code>) and path detection.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-auto border-t border-slate-800/80 bg-slate-950/80 backdrop-blur-lg py-8 text-center text-xs text-slate-400">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                    <span class="text-slate-300 font-medium">API Security Scanner</span>
+                    <span>&mdash; Designed for Ethical Hacking &amp; AppSec Audits</span>
+                </div>
+                <div class="text-slate-400 text-[11px]">
+                    ⚠️ Educational &amp; authorized testing purposes only. Do not scan unowned targets.
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Application Script -->
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
